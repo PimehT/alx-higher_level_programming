@@ -11,11 +11,11 @@ if number < 0:
         n *= 10
     else:
         if number % n == 0:
-            print('Last digit of', -number, 'is', number % n, a)
+            print('Last digit of', -number, 'is', -(number % n), a)
         elif number % n < 6:
-            print('Last digit of', -number, 'is', number % n, b)
+            print('Last digit of', -number, 'is', -(number % n), b)
         else:
-            print('Last digit of', -number, 'is', number % n, c)
+            print('Last digit of', -number, 'is', -(number % n), c)
 else:
     while number % n > 9:
         n *= 10
