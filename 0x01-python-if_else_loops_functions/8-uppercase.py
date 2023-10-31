@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def uppercase(str):
     if not str:
-        return
+        return ""
     for i in range(0, len(str)):
         char = ord(str[i])
         if char > 96 and char < 123:
