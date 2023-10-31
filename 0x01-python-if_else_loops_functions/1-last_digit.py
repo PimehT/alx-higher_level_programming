@@ -5,6 +5,7 @@ a = 'and is 0'
 b = 'and is less than 6 and not 0'
 c = 'and is greater than 5'
 if number < 0:
+    number *= -1
     print('Last digit of', -number, 'is', -(number % 10), b)
 else:
     if number % 10 == 0:
