@@ -7,9 +7,9 @@ c = 'and is greater than 5'
 if number < 0:
     print('Last digit of', -number, 'is', -(number % 10), b)
 else:
-    if number % n == 0:
+    if number % 10 == 0:
         print('Last digit of', number, 'is', number % 10, a)
-    elif number % n < 6:
+    elif number % 10 < 6:
         print('Last digit of', number, 'is', number % 10, b)
     else:
         print('Last digit of', number, 'is', number % 10, c)
