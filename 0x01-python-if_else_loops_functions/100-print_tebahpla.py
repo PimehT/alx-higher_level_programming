@@ -5,6 +5,8 @@ def add_or_not(a):
         return a + 32
     else:
         return a
+
+
 while i > 64:
     print("{}".format(chr(add_or_not(i))), end='')
     i = i - 1
