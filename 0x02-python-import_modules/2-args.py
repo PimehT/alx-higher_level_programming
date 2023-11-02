@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import sys
 
+
 def list_out():
     argv = sys.argv
     if len(argv) == 1:
