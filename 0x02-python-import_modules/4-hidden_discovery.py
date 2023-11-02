@@ -9,4 +9,5 @@ def print_cache():
         print("{}".format(i))
 
 
-print_cache()
+if __name__ == "__main__":
+    print_cache()
