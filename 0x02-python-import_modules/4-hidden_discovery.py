@@ -4,7 +4,10 @@ import hidden_4
 
 
 def print_cache():
-    cache = [item for item in dir(hidden_4) if "__" not in item]
+    cache = []
+    for item in dir(hidden_4):
+        if "__" not in item:
+            cache.append(item)
     for i in cache:
         print("{}".format(i))
 
