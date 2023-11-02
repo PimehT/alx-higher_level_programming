@@ -2,4 +2,9 @@
 from variable_load_5 import a
 
 
-print("{}".format(a))
+def print_a():
+    print("{}".format(a))
+
+
+if __name__ == "__main__":
+    print_a()
