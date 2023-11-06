@@ -7,36 +7,48 @@
  * @head: pointer to the first node
  *
  * Return: 1 if palindrome, otherwise 0
-*/
+ */
 int is_palindrome(listint_t **head)
 {
-	int *arr = NULL;
-	int size = 0;
-	int i;
-	listint_t *ptr = *head;
+	listint_t *fast = *head;
+	listint_t *slow = *head;
+	listint_t *second_half = NULL;
+	listint_t *prev = NULL;
+	int is_palindrome = 1;
 
-	if (ptr == NULL)
-		return (0);
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
 
-	while (ptr != NULL)
+	while (fast && fast->next)
 	{
-		arr = (int *)realloc(arr, (size + 1) * sizeof(int));
-		if (arr == NULL)
-			exit(1);
-
-		arr[size] = ptr->n;
-		size++;
-		ptr = ptr->next;
+		fast = fast->next->next;
+		prev = slow;
+		slow = slow->next;
 	}
 
-	for (i = 0; i < size / 2; i++)
+	prev = NULL;
+	second_half = slow;
+	while (second_half)
 	{
-		if (arr[i] != arr[size - i - 1])
+		listint_t *next = second_half->next;
+
+		second_half->next = prev;
+		prev = second_half;
+		second_half = next;
+	}
+
+	second_half = prev;
+	while (second_half)
+	{
+		if ((*head)->n != second_half->n)
 		{
-			free(arr);
-			return (0);
+			is_palindrome = 0;
+			break;
 		}
+		*head = (*head)->next;
+		second_half = second_half->next;
 	}
-	free(arr);
-	return (1);
+
+	return (is_palindrome);
 }
+
