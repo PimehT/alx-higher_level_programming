@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 {
 	int *arr = NULL;
 	int size = 0;
-	int i, j;
+	int i;
 	listint_t *ptr = *head;
 
 	if (ptr == NULL)
@@ -31,13 +31,10 @@ int is_palindrome(listint_t **head)
 
 	for (i = 0; i < size / 2; i++)
 	{
-		for (j = size - 1; j <= i; j--)
+		if (arr[i] != arr[size - i - 1])
 		{
-			if (arr[i] != arr[j])
-			{
-				free(arr);
-				return (0);
-			}
+			free(arr);
+			return (0);
 		}
 	}
 	free(arr);
