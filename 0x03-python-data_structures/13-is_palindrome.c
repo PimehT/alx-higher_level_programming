@@ -20,7 +20,7 @@ int is_palindrome(listint_t **head)
 
 	while (ptr != NULL)
 	{
-		arr = (int *)realloc(arr, size * sizeof(int));
+		arr = (int *)realloc(arr, (size + 1) * sizeof(int));
 		if (arr == NULL)
 			exit(1);
 
