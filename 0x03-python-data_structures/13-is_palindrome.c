@@ -11,7 +11,7 @@
 int is_palindrome(listint_t **head)
 {
 	int *arr = NULL;
-	int size = 0, half;
+	int size = 0;
 	int i, j;
 	listint_t *ptr = *head;
 
@@ -20,7 +20,7 @@ int is_palindrome(listint_t **head)
 
 	while (ptr != NULL)
 	{
-		arr = (int *)realloc(arr, (size + 1) * sizeof(int));
+		arr = (int *)realloc(arr, size * sizeof(int));
 		if (arr == NULL)
 			exit(1);
 
@@ -29,16 +29,17 @@ int is_palindrome(listint_t **head)
 		ptr = ptr->next;
 	}
 
-	half = size / 2;
-	for (i = 0; i < half; i++)
+	for (i = 0; i < size / 2; i++)
 	{
 		for (j = size - 1; j <= i; j--)
 		{
-			if (arr[i] == arr[j])
-				continue;
-			else
+			if (arr[i] != arr[j])
+			{
+				free(arr);
 				return (0);
+			}
 		}
 	}
+	free(arr);
 	return (1);
 }
