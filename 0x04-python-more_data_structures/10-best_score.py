@@ -5,9 +5,11 @@ def best_score(a_dictionary):
     function returns a key with the biggest integer value
     """
     max_int = 0
+    idx = ''
     if not a_dictionary:
         return
-    for value in a_dictionary.values():
+    for key, value in a_dictionary.items():
         if value > max_int:
             max_int = value
-    return max_int
+            idx = key
+    return idx
