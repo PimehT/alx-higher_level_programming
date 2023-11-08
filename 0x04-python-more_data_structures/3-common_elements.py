@@ -10,10 +10,8 @@ def common_elements(set_1, set_2):
 
     Returns: set with common elements
     """
-    if not set_1:
-        return
-    if not set_2:
-        return
+    if not set_1 or not set_2:
+        return set()
     new_set = set()
     for item in set_1:
         if item in set_2:
