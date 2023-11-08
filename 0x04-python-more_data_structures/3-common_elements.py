@@ -14,8 +14,8 @@ def common_elements(set_1, set_2):
         return
     if not set_2:
         return
-    new_set = []
+    new_set = set()
     for item in set_1:
         if item in set_2:
-            new_set.append(item)
+            new_set.add(item)
     return new_set
