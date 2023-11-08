@@ -10,5 +10,4 @@ def multiply_list_map(my_list=[], number=0):
     my_list: source list to which we multiply elements by a num
     number: number to multiply elements
     """
-    mul = lambda x: x * number
-    return list(map(mul, my_list))
+    return list(map(lambda x: x * number, my_list))
