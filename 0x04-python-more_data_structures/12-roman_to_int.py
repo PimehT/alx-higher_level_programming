@@ -2,17 +2,16 @@
 def roman_to_int(roman_string):
     if not roman_string or roman_string is None:
         return 0
-    values = {
-            'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000
-            }
+    value = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     total = 0
     i = 0
-    while (i < len(roman_string)):
-        if values[roman_string[i]] < values[roman_string[i+1]]:
-            total += (values[roman_string[i+1]] - values[roman_string[i]])
+    length = len(roman_string)
+    while i < length:
+        if i+1 < length and value[roman_string[i]] < value[roman_string[i+1]]:
+            total += (value[roman_string[i+1]] - value[roman_string[i]])
             i += 2
         else:
-            total += values[roman_string[i]]
+            total += value[roman_string[i]]
             i += 1
 
     return total
