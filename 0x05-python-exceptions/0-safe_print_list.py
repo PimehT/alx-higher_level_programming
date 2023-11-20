@@ -6,19 +6,16 @@ def safe_print_list(my_list=[], x=0):
 
     Parameters:
     my_list (List[int]): List to be printed. Default is empty list [].
-    x (int): Number of elements to print, can be bigger than len of my_list
+    x (int): Number of elements from the beginning of the list that will be printed. Default is 0, which means all elements will be
 
     Return: The real number of elements printed
     """
-    try:
-        i = 0
-        while i < x:
-            if i == x - 1:
-                print("{}".format(my_list[i]))
-            else:
-                print("{}".format(my_list[i]), end="")
+    i = 0
+    while i < x:
+        try:
+            print("{}".format(my_list[i]), end="")
             i += 1
-        return i
-    except IndexError:
-        print()
-        return i
+        except IndexError:
+            break
+    print()
+    return i
