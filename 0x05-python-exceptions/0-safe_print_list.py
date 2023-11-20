@@ -6,8 +6,7 @@ def safe_print_list(my_list=[], x=0):
 
     Parameters:
     my_list (List[int]): List to be printed. Default is empty list [].
-    x (int): Number of elements from the beginning of the list that will be printed. Default is 0, which means all elements will be
-
+    x (int): Number of elements to print, can be bigger than len of my_list
     Return: The real number of elements printed
     """
     i = 0
