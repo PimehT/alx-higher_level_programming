@@ -72,7 +72,8 @@ class SinglyLinkedList:
             self.__head = new_node
         else:
             temp = self.__head
-            while temp.next_node and temp.next_node.data < value:
+            while (temp.next_node is not None and
+                    temp.next_node.data < value):
                 temp = temp.next_node
             new_node.next_node = temp.next_node
             temp.next_node = new_node
@@ -81,7 +82,7 @@ class SinglyLinkedList:
         """ Enabling list to be printed one node data per line """
         result = []
         current_node = self.__head
-        while current_node:
+        while current_node is not None:
             result.append(str(current_node.data))
             current_node = current_node.next_node
         return "\n".join(result)
