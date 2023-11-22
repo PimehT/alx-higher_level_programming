@@ -27,7 +27,8 @@ class Square:
         Args:
         value (int): new size of square
         """
-        if not isinstance(value, int)
+        if (not isinstance(value, int) or
+                not isinstance(size, float)):
             raise TypeError("size must be an number")
         if value < 0:
             raise ValueError("size must be >= 0")
@@ -35,7 +36,7 @@ class Square:
 
     def area(self):
         """ return area of square """
-        return (self.__size ** 2)
+        return (self.__size * self.__size)
 
     def __eq__(self, other):
         """ Define the == comparision """
