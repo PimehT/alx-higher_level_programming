@@ -12,12 +12,7 @@ class Square:
         Args:
         size (int): size of square
         """
-        if (not isinstance(size, int) or
-                not isinstance(size, float)):
-            raise TypeError("size must be an number")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = size
+        self.size = size
 
     @property
     def size(self):
