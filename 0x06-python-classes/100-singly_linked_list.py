@@ -28,7 +28,7 @@ class Node:
         value (int): new value to set
         """
         if not isinstance(value, int):
-            raise TypeError("value must be an integer")
+            raise TypeError("data must be an integer")
         self.__data = value
 
     @property
