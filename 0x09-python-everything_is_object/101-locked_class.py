@@ -3,11 +3,10 @@
 
 
 class LockedClass:
-    """ Locked class defined """
+    """
+    Locked class defined
+    It prevents user from creating new instance
+    if the attribute is not called <first_name>
+    """
 
-    def __setattr__(self, name, value):
-        """ sets attribute only if name has specific value """
-        if name != "first_name":
-            raise AttributeError("object has no attribute {}".format(name))
-        else:
-            self.__dict__[name] = value
+    __slots__ = ["first_name"]
