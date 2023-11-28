@@ -1,0 +1,29 @@
+5-text_indentation
+==================
+
+This function prints text with 2 new lines after each of '.', '?', and ':' characters.
+
+Basic Usage
+-----------
+
+>>> text_indentation("This is a sentence. Does it work? Let's test: it should.")
+This is a sentence.
+Does it work?
+Let's test
+it should.
+
+>>> text_indentation("Multiple... dots?: Are they handled well?")
+Multiple
+dots?
+Are they handled well?
+
+Exception Handling
+------------------
+
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+>>> text_indentation("Some text here")
+Some text here  # No extra newlines as there are no '.' '?' or ':' in the text.

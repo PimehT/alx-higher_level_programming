@@ -1,0 +1,58 @@
+3-say_my_name
+=============
+
+This file contains examples for the function say_my_name
+
+Basic Usage
+-----------
+
+The function `say_my_name` returns "My name is <first name> <last name>"
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> print(say_my_name("John", "Smith"))
+My name is John Smith
+
+>>> print(say_my_name("Walter", "White"))
+My name is Walter White
+
+If <last name> is not provided, a default empty string is printed out instead
+
+>>> print(say_my_name("Bob"))
+My name is Bob 
+
+Exception Handling
+------------------
+
+TypeError
+---------
+The first_name must be a string otherwise a TypeError would be raised
+
+>>> print(say_my_name(12, "White"))
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+>>> a = None
+>>> print(say_my_name(a, "White"))
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+>>> a = float("443")
+>>> print(say_my_name(a, "White"))
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+Likewise last_name must be a string otherwise a TypeError is raised
+
+>>> print(say_my_name("Rick", 67))
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+>>> b = None
+>>> print(say_my_name("Rick", b))
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string

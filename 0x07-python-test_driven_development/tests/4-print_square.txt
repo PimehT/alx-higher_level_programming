@@ -1,0 +1,86 @@
+4-print_square
+==============
+
+This file contains examples for the function print_square
+
+Basic Usage
+-----------
+
+The function `print_square(...)` prints a square with the character '#'
+The square is determined by the parameter size of the function
+
+>>> print_square = __import__('4-print_square').print_square
+>>> print_square(4)
+####
+####
+####
+####
+
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+If the size is 0 an empty string is printed
+
+>>> print_square(0)
+
+Exception Handling
+------------------
+
+TypeError
+---------
+
+Size of square must be an integer otherwise TypeError will be raised
+
+>>> print_square("not integer")
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+>>> print_square(float(5))
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+>>> print_square(float(-7))
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+There must be one argument
+
+>>> print_square()
+Traceback (most recent call last):
+    ...
+TypeError: print_square() missing 1 required positional argument: 'size'
+
+>>> print_square(4, 5) 
+Traceback (most recent call last):
+    ...
+TypeError: print_square() takes 1 positional argument but 2 were given
+
+ValueError
+----------
+Value of size must not be less than zero
+
+>>> print_square(-2)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+OverflowError
+-------------
+Size value exceeds maximum limit for int type. OverflowError will be raised
+
+>>> print_square(int(1e1024)) 
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
