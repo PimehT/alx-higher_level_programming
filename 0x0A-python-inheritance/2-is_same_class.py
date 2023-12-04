@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+# 2-is_same_class.py
+""" check if an object is specifically a certain type """
+
+
 def is_same_class(obj, a_class):
     """
     Function that returns True if the object is exactly an instance
