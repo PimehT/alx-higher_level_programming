@@ -19,5 +19,5 @@ class Square(Rectangle):
     def __str__(self):
         """ string representation of the class rectangle """
         result = "[" + self.__class__.__name__ + "] "
-        result += str(self.__width) + "/" + str(self.__height)
+        result += str(self.__size) + "/" + str(self.__size)
         return result
