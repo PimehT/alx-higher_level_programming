@@ -1,0 +1,91 @@
+# 7-base_geometry.txt
+
+===========================
+Testing for BaseGeometry
+===========================
+
+This module defines a class `BaseGeometry`.
+
+Testing Methods
+----------------
+
+### Testing `integer_validator()` Method
+
+Usage
+-----
+
+Ensure that the method `integer_validator()` validates integer inputs correctly.
+
+Test Cases
+----------
+
+1. **Validating Non-Integer Value:**
+    Ensure that the method raises a `TypeError` exception when validating a non-integer value.
+
+    ```python
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> try:
+    ...     bg.integer_validator("name", "John")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [TypeError] name must be an integer
+
+
+2. **Validating Negative or Zero Value:**
+    Verify that the method raises a `ValueError` exception for negative or zero values.
+
+    ```python
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> try:
+    ...     bg.integer_validator("age", 0)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] age must be greater than 0
+
+
+3. **Validating Positive Integer:**
+    Confirm that the method does not raise exceptions for positive integers.
+
+    ```python
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("distance", 42)
+
+
+### Testing `area()` Method
+
+Usage
+-----
+
+Ensure that the method `area()` calculates the area correctly.
+
+Test Cases
+----------
+
+4. **Exception for Unimplemented Method:**
+    Verify that calling the `area()` method without implementation raises a `NotImplementedError`.
+
+    ```python
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> try:
+    ...     bg.area()
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    [Exception] area() is not implemented
+
+
+5. **Validating Area Calculation:**
+    Check that the `area()` method returns the correct area.
+
+    ```python
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.width = 10
+    >>> bg.height = 5
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
