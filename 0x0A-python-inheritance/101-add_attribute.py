@@ -2,6 +2,7 @@
 # 101-add_attribute.py
 """ this module adds attribute to be added if allowed """
 
+
 def add_attribute(obj, attr, value):
     """
     adds an new attribute to an object if it is possible
