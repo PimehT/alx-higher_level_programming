@@ -11,4 +11,4 @@ def read_file(filename=""):
     If no argument is provided, this function will return an empty string.
     """
     with open(filename, 'r', encoding="utf-8") as f:
-        print("{}".format(f.read()))
+        print(f.read())
