@@ -10,8 +10,5 @@ def read_file(filename=""):
     filename (str) : the name of the file you want to open.
     If no argument is provided, this function will return an empty string.
     """
-    if not filename:
-        print('')
-    else:
-        with open(filename, 'r', encoding="utf-8") as f:
-            print("{}".format(f.read()))
+    with open(filename, 'r', encoding="utf-8") as f:
+        print("{}".format(f.read()))
