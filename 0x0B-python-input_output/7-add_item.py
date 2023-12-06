@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 7-add_item.py
-# Add an item to the list of items in a JSON file
+""" Add an item to the list of items in a JSON file """
 import sys
 from os import path
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
