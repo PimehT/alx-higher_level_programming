@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # 0-read_file.py
 """ reads a text file and prints it out to stdout """
+
+
 def read_file(filename=""):
     """
     reads a text file and prints it out to stdout

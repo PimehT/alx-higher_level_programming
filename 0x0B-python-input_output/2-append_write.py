@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # 2-append_write.py
 """ appends a text to the EOF and returns the number of chars """
+
+
 def append_write(filename="", text=""):
     """
     a function that appends a string to the EOF
