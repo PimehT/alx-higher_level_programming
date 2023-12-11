@@ -144,7 +144,7 @@ class Rectangle(Base):
                 self.x = args[3]
             if arg_count >= 5:
                 self.y = args[4]
-        if kwargs:
+        elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
