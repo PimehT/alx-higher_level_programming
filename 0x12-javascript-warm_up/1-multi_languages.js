@@ -1,3 +1,4 @@
 #!/usr/bin/node
-const strList = ['C is fun', 'Python is cool', 'Javascript is amazing'];
-console.log(strList[0] + '\n' + strList[1] + '\n' + strList[2]);
+console.log('C is fun');
+console.log('Python is cool');
+console.log('Javascript is amazing');
