@@ -25,11 +25,12 @@ db = MySQLdb.connect(
 )
 
 cursor = db.cursor()
-query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-cursor.execute(query, (st_name,))
+query = "SELECT * FROM states ORDER BY id ASC"
+cursor.execute(query)
 results = cursor.fetchall()
 for row in results:
-    print("{}".format(row))
+    if row[1] == st_name:
+        print("{}".format(row))
 
 cursor.close()
 db.close()
