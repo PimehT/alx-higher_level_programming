@@ -7,7 +7,8 @@ import MySQLdb
 import sys
 
 if len(sys.argv) != 5:
-    print("Usage: {} <username> <password> <database> <name>".format(sys.argv[0]))
+    err_msg = "Usage: {} <username> <password> <database> <name>"
+    print(err_msg.format(sys.argv[0]))
     sys.exit(1)
 
 username = sys.argv[1]
