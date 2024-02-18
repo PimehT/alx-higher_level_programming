@@ -3,8 +3,8 @@
 List all State objects from the database hbtn_0e_6_usa
 """
 from sqlalchemy import create_engine, select
-from sqlalchemy.orm import sessionmaker
-from model_state import State
+from sqlalchemy.orm import Session
+from model_state import Base, State
 import sys
 
 if __name__ == "__main__":
@@ -16,14 +16,10 @@ if __name__ == "__main__":
         engine_str.format(user_n, pass_w, data_b), pool_pre_ping=True
     )
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    Base.metadata.create_all(engine)
+    session = Session(engine)
 
-    query = select(State).order_by(State.id)
-    result = session.execute(query)
-    rows = result.fetchall()
-
-    for row in rows:
-        print("{}".format(row))
+    for row in session.query(State).order_by(State.id):
+        print("{}: {}".format(row.id, row.name))
 
     session.close()
