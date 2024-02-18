@@ -19,7 +19,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = select(State)
+    query = select(State).order_by(State.id)
     result = session.execute(query)
     rows = result.fetchall()
 
