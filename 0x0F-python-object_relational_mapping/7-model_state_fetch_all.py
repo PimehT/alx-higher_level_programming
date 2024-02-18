@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" List all State objects from the database hbtn_0e_6_usa """
+"""
+List all State objects from the database hbtn_0e_6_usa
+"""
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 from model_state import State
@@ -23,5 +25,5 @@ if __name__ == "__main__":
 
     for row in rows:
         print("{}".format(row))
-    
+
     session.close()
