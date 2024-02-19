@@ -2,9 +2,9 @@
 """
 List all City obj from database hbtn_0e_14_usa
 """
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_state import State
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import Session
+from model_state import State, Base
 from model_city import City
 import sys
 
@@ -20,10 +20,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     session = Session(engine)
 
-    stmt = session.query(City, State).filter(City.state_id == State.id).all()
-
-    stmt.sort(City.id)
-    for city, state in stmt:
+    for city, state in session.query(City, State) \
+            .filter(City.state_id == State.id).order_by(City.id).all():
         print("{}: ({}) {}".format(state.name, city.id, city.name))
 
     session.close()

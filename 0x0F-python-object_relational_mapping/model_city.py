@@ -4,9 +4,7 @@ Define class City
 Use of sqlalchemy to link to the MySQL db
 """
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from model_state import Base, State
 
 
 class City(Base):
@@ -17,7 +15,7 @@ class City(Base):
     name (String): the city's name
     state_id (Integer): the foreign key from state id
     """
-    __tablename__ = "states"
+    __tablename__ = "cities"
     id = Column(
         Integer,
         primary_key=True,
@@ -31,6 +29,6 @@ class City(Base):
     )
     state_id = Column(
         Integer,
-        nullable=False,
-        ForeignKey("states.id")
+        ForeignKey("states.id"),
+        nullable=False
     )
