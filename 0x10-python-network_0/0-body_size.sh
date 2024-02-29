@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 # get url and send http request to url
 
-if [ -z "$" ]; then
+if [ -z "$1" ]; then
     echo "Usage: $0 <URL>"
     exit 1
 fi
 
 URL="$1"
 
-curl -s -o /dev/null -w "%{size_download}" "URL"
+curl -sI | grep -i Content-Length | cut -d ' ' -f 2
