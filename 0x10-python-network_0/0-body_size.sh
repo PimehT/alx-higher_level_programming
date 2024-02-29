@@ -8,4 +8,4 @@ fi
 
 URL="$1"
 
-curl -sI | grep -i Content-Length | cut -d ' ' -f 2
+curl -sI $1 | grep -i Content-Length | cut -d ' ' -f 2
