@@ -23,8 +23,5 @@ def get_request_id(url):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <URL>")
-    else:
-        url = sys.argv[1]
-        get_request_id(url)
+    url = sys.argv[1]
+    get_request_id(url)
