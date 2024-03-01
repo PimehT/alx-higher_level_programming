@@ -11,7 +11,8 @@ import sys
 def hbtn_header_req(url):
     """ prints value of X-Request-Id in response header of url"""
     r = requests.get(url)
-    print(r.headers['X-Request-Id'])
+    data = r.headers['X-Request-Id']
+    print(data)
 
 
 if __name__ == "__main__":
