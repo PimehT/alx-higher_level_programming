@@ -12,12 +12,8 @@ def get_request_id(url):
     try:
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as resp:
-            # Check if the 'X-Request-Id' header exists in the response
-            if 'X-Request-Id' in resp.headers:
-                request_id = resp.headers['X-Request-Id']
-                print(request_id)
-            else:
-                print("X-Request-Id not found in the response headers.")
+            x_request_id = resp.getheader('X-Request-Id')
+            print(x_request_id)
     except urllib.error.URLError as e:
         print(f"Error accessing the URL: {e}")
 
