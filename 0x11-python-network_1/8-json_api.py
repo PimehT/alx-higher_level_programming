@@ -26,7 +26,7 @@ def json_api(char=None):
             print("No result")
         else:
             print("[{}] {}".format(user.get('id'), user.get('name')))
-    except JSONDecodeError:
+    except ValueError:
         print("Not a valid JSON")
 
 
