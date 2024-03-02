@@ -25,7 +25,7 @@ def json_api(char=None):
         if not user:
             print("No result")
         else:
-            print("[{}] {}".format(user['id'], user['name']))
+            print("[{}] {}".format(user.get('id'), user.get('name')))
     except JSONDecodeError:
         print("Not a valid JSON")
 
