@@ -10,7 +10,7 @@ import sys
 def get_github_user_id(user, token):
     """ return GitHub user ID using GitHub API """
     url = "https://api.github.com/user"
-    auth = HTTPBasicAuth(user, token) 
+    auth = HTTPBasicAuth(user, token)
     r = requests.get(url, auth=auth)
     user_info = r.json()
     return user_info.get('id')
