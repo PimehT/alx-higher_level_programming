@@ -1,15 +1,20 @@
 #!/usr/bin/node
 const request = require('request');
 
-const apiUrl = process.argv[2];
-const characterId = 18;
+const url = process.argv[2];
 
-request(apiUrl, function(error, response, body) {
-    if (error) {
-        console.error('Error:', error);
-    } else {
-        const films = JSON.parse(body).results;
-        const count = films.filter(film => film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)).length;
-        console.log(count);
+request(url, (err, resp, body) => {
+  if (err) {
+    console.log(err);
+  } else if (resp.statusCode !== 200) {
+    console.log(`Status: ${resp.statusCode}`);
+  } else {
+    const antilles = 'https://swapi-api.alx-tools.com/api/people/18/';
+    const movies = JSON.parse(body).results;
+    let count = 0;
+    for (let i = 0; i < movies.length; i++) {
+      if (movies[i].characters.includes(antilles)) count += 1;
     }
+    console.log(count);
+  }
 });
