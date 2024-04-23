@@ -9,10 +9,9 @@ request(url, (err, resp, body) => {
   } else if (resp.statusCode !== 200) {
     console.log(`Status: ${resp.statusCode}`);
   } else {
-    const charId = 18;
-    const character = `https://swapi-api.alx-tools.com/api/people/${charId}/`;
+    const charId = '/18/';
     const movies = JSON.parse(body).results;
-    const count = movies.filter(movie => movie.characters.includes(character)).length;
+    const count = movies.filter(movie => movie.characters.endsWith(charId)).length;
     console.log(count);
   }
 });
