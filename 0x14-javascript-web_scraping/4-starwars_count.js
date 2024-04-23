@@ -9,11 +9,11 @@ request(url, (err, resp, body) => {
   } else if (resp.statusCode !== 200) {
     console.log(`Status: ${resp.statusCode}`);
   } else {
-    const charId = 'https://swapi-api.alx-tools.com/api/people/18/';
+    const charId = '/18/';
     const movies = JSON.parse(body).results;
     const count = movies.filter(movie => {
       for (const char of movie.characters) {
-        if (char.includes(charId)) return true;
+        if (char.endsWith(charId)) return true;
       }
       return false;
     });
