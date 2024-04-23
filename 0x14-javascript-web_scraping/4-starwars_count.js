@@ -12,10 +12,7 @@ request(url, (err, resp, body) => {
     const charId = 18;
     const character = `https://swapi-api.alx-tools.com/api/people/${charId}/`;
     const movies = JSON.parse(body).results;
-    let count = 0;
-    for (let i = 0; i < movies.length; i++) {
-      if (movies[i].characters.includes(character)) count += 1;
-    }
+    const count = movies.filter(movie => movie.characters.includes(character)).length;
     console.log(count);
   }
 });
