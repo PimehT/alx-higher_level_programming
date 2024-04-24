@@ -18,14 +18,11 @@ function fetchData (url) {
 
 fetchData(baseUrl)
   .then((movie) => {
-    const characters = movie.characters;
-    characters.forEach(async (char) => {
-      try {
-        const character = await fetchData(char);
-        console.log(character.name);
-      } catch (error) {
-        console.log(error);
-      }
+    return Promise.all(movie.characters.map(char => fetchData(char)));
+  })
+  .then((characters) => {
+    characters.forEach(char => {
+      console.log(char.name);
     });
   })
   .catch((error) => {
