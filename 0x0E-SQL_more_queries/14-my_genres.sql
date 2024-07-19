@@ -5,5 +5,5 @@
 SELECT tv_genres.name AS name
 FROM tv_show_genres NATURAL JOIN tv_genres NATURAL JOIN tv_shows
 ON tv_genres.id = tv_show_genres.genre_id
-WHERE tv_shows.name = `Dexter`
+WHERE tv_shows.name = 'Dexter'
 ORDER BY tv_genres.name ASC;
