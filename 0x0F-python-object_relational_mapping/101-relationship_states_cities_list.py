@@ -24,7 +24,7 @@ if __name__ == "__main__":
     id = 0
 
     for state, city in (session.query(State, City)
-                        .join(City, State.id==City.state_id)
+                        .join(City, State.id == City.state_id)
                         .order_by(City.id)).all():
         if state.id is not id:
             id = state.id
