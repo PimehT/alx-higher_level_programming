@@ -21,8 +21,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    id = 0
-
     for state in session.query(State).all():
         print(f"{state.id}: {state.name}")
         for city in state.cities:
