@@ -20,14 +20,13 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     session = Session(engine)
 
-    new_state_name = "Louisiana"
-    new_state = State(name=new_state_name)
+    new_name = "Louisiana"
+    new_state = State(name=new_name)
     session.add(new_state)
     session.commit()
-    states = session.query(State).order_by(State.id).all()
 
-    for state in states:
-        if state.name == new_state_name:
-            print("{}".format(state.id))
+    state = session.query(State).filter(State.name == new_name).first()
+    if state:
+        print(f"{state.id}")
 
     session.close()
