@@ -12,6 +12,7 @@ if __name__ == "__main__":
     user_n = sys.argv[1]
     pass_w = sys.argv[2]
     data_b = sys.argv[3]
+    state_n = sys.argv[4]
     engine_str = 'mysql+mysqldb://{}:{}@localhost/{}'
     engine = create_engine(
         engine_str.format(user_n, pass_w, data_b), pool_pre_ping=True
@@ -20,11 +21,16 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     session = Session(engine)
 
-    search = f"%{sys.argv[4]}%"
+    states = session.query(State).order_by(State.id).all()
 
-    row = session.query(State).filter(State.name.like(search)).first()
-    if not row:
-        print('Not found')
+    count = 0
+    for state in states:
+        if state.name == state_n:
+            count = state.id
+
+    if (count > 0):
+        print("{}".format(count))
     else:
-        print(f"{row.id}")
+        print("Not found")
+
     session.close()
