@@ -21,16 +21,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     session = Session(engine)
 
-    states = session.query(State).order_by(State.id).all()
-
-    count = 0
-    for state in states:
-        if state.name == state_n:
-            count = state.id
-
-    if (count > 0):
-        print("{}".format(count))
+    row = session.query(State).filter(State.name == state_n).first()
+    if not row:
+        print('Not found')
     else:
-        print("Not found")
-
+        print(f"{row.id}")
     session.close()
