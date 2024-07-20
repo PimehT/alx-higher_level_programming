@@ -23,10 +23,7 @@ if __name__ == "__main__":
 
     id = 0
 
-    for state, city in (session.query(State, City)
-                        .join(City, State.id == City.state_id)
-                        .order_by(City.id)).all():
-        if state.id is not id:
-            id = state.id
-            print(f"{state.id}: {state.name}")
-        print(f"\t{city.id}: {city.name}")
+    for state in session.query(State).all():
+        print(f"{state.id}: {state.name}")
+        for city in state.cities:
+            print(f"\t{city.id}: {city.name}")
